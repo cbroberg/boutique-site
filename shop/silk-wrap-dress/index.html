@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silk Wrap Dress — AURA.</title>
+  <meta name="description" content="A fluid silk wrap dress that drapes beautifully on every figure. Cut from pure mulberry silk with a subtle lustre, this piece moves with effortless grace. The a">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #faf9f7;
+  --text: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e5e3df;
+  --white: #fff;
+  --font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-weight: 300;
+}
+
+a { color: var(--text); text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ---- Header ---- */
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 1.25rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(250, 249, 247, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.3s ease;
+}
+
+.site-header.scrolled {
+  border-bottom-color: var(--border);
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.header-nav a {
+  font-size: 0.8125rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s ease;
+}
+
+.header-nav a:hover { color: var(--text); }
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.header-icons a {
+  color: var(--muted);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+}
+
+.header-icons a:hover { color: var(--text); }
+
+/* ---- Hero ---- */
+.hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+}
+
+.hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.05) 0%,
+    rgba(0,0,0,0.25) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+.hero-heading {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 0.75rem;
+}
+
+.hero-sub {
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 1.5vw, 1.125rem);
+  font-weight: 300;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 2.5rem;
+}
+
+.hero-cta {
+  display: inline-block;
+  padding: 1rem 3rem;
+  background: var(--white);
+  color: var(--text);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.hero-cta:hover {
+  background: var(--text);
+  color: var(--white);
+}
+
+/* ---- Featured Products ---- */
+.featured-section {
+  padding: 6rem 2.5rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 4rem;
+  letter-spacing: 0.02em;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.product-card {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+}
+
+.product-card-image {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3/4;
+  overflow: hidden;
+  background: #f0efec;
+}
+
+.product-card-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+.product-card-image .product-img-hover {
+  opacity: 0;
+}
+
+.product-card:hover .product-img-hover {
+  opacity: 1;
+}
+
+.product-card:hover .product-img-main {
+  opacity: 0;
+}
+
+.product-card-info {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.product-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.product-card-price {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+
+/* ---- Brand Story ---- */
+.brand-story {
+  padding: 6rem 2.5rem 7rem;
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.brand-story h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  margin-bottom: 2rem;
+  letter-spacing: 0.02em;
+}
+
+.brand-story p {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  font-weight: 300;
+}
+
+/* ---- Editorial Gallery ---- */
+.gallery-section {
+  padding: 2rem 2.5rem 6rem;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 280px;
+  gap: 0.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+.gallery-item:nth-child(1) { grid-row: span 2; }
+.gallery-item:nth-child(4) { grid-row: span 2; }
+.gallery-item:nth-child(7) { grid-column: span 2; }
+
+/* ---- Newsletter ---- */
+.newsletter-section {
+  padding: 6rem 2.5rem;
+  text-align: center;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.newsletter-section h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 400;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.newsletter-section p {
+  font-size: 0.9375rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  font-weight: 300;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem;
+}
+
+.newsletter-form {
+  display: flex;
+  max-width: 440px;
+  margin: 0 auto;
+  border: 1px solid var(--border);
+}
+
+.newsletter-form input {
+  flex: 1;
+  padding: 0.875rem 1.25rem;
+  border: none;
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: var(--text);
+  outline: none;
+}
+
+.newsletter-form input::placeholder {
+  color: #b5b3ae;
+}
+
+.newsletter-form button {
+  padding: 0.875rem 2rem;
+  background: var(--text);
+  color: var(--white);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background: #333;
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  padding: 4rem 2.5rem 2.5rem;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.footer-brand .logo {
+  font-size: 1.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.footer-tagline {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  max-width: 280px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-links a {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  letter-spacing: 0.05em;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.footer-links a:hover { color: var(--text); }
+
+.footer-bottom {
+  max-width: 1400px;
+  margin: 3rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: #b5b3ae;
+}
+
+.footer-bottom a {
+  color: #b5b3ae;
+  transition: color 0.2s ease;
+}
+
+.footer-bottom a:hover { color: var(--text); }
+
+/* ---- Shop Page ---- */
+.shop-header {
+  padding: 10rem 2.5rem 3rem;
+  text-align: center;
+}
+
+.shop-header h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 8vw, 5rem);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+.shop-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  padding: 2rem 2.5rem 6rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.shop-card-sizes {
+  font-size: 0.75rem;
+  color: #b5b3ae;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.shop-card-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 2px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.product-card:hover .shop-card-link {
+  color: var(--text);
+  border-color: var(--text);
+}
+
+/* ---- Product Detail ---- */
+.product-detail {
+  padding: 7rem 2.5rem 4rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.product-gallery img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+}
+
+.product-info {
+  position: sticky;
+  top: 6rem;
+  padding: 2rem 0;
+}
+
+.product-breadcrumb {
+  font-size: 0.75rem;
+  color: #b5b3ae;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+.product-breadcrumb a {
+  color: #b5b3ae;
+  transition: color 0.2s ease;
+}
+
+.product-breadcrumb a:hover { color: var(--text); }
+
+.product-info h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4vw, 2.75rem);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.75rem;
+}
+
+.product-price {
+  font-size: 1.125rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  font-weight: 300;
+}
+
+.product-description {
+  font-size: 0.9375rem;
+  line-height: 1.85;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  font-weight: 300;
+}
+
+.product-meta-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.875rem 0;
+  border-top: 1px solid var(--border);
+  font-size: 0.8125rem;
+}
+
+.product-meta-label {
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  color: var(--muted);
+}
+
+.product-meta-value {
+  color: var(--text);
+}
+
+.product-sizes {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: 1.5rem 0;
+}
+
+.size-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  padding: 0.5rem 0.875rem;
+  border: 1px solid var(--border);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.size-pill:hover {
+  border-color: var(--text);
+  background: var(--text);
+  color: var(--white);
+}
+
+.add-to-cart {
+  display: block;
+  width: 100%;
+  padding: 1.125rem;
+  margin-top: 2rem;
+  background: var(--text);
+  color: var(--white);
+  border: none;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.add-to-cart:hover {
+  background: #333;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1024px) {
+  .products-grid,
+  .shop-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .site-header { padding: 1rem 1.25rem; }
+  .logo { font-size: 1.375rem; }
+  .header-nav { gap: 1.25rem; }
+  .header-nav a { font-size: 0.6875rem; }
+
+  .featured-section,
+  .brand-story,
+  .gallery-section,
+  .newsletter-section { padding-left: 1.25rem; padding-right: 1.25rem; }
+
+  .products-grid,
+  .shop-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 180px;
+  }
+
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(4) { grid-row: span 1; }
+  .gallery-item:nth-child(7) { grid-column: span 1; }
+
+  .newsletter-form { flex-direction: column; }
+  .newsletter-form button { padding: 1rem; }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 5rem 1.25rem 4rem;
+  }
+
+  .product-info { position: static; }
+
+  .shop-header { padding: 7rem 1.25rem 2rem; }
+  .shop-grid { padding: 2rem 1.25rem 4rem; }
+}
+</style>
+</head>
+<body>
+
+  <header class="site-header" id="site-header">
+    <a href="/" class="logo">AURA.</a>
+    <div class="header-nav">
+      <a href="/shop/">Shop</a>
+      <div class="header-icons">
+        <a href="https://instagram.com/aura" aria-label="Instagram" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+        <a href="https://x.com/aura" aria-label="X / Twitter" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" aria-label="Cart"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+      </div>
+    </div>
+  </header>
+
+  <div class="product-detail">
+    <div class="product-gallery">
+
+          <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=800&amp;q=80&amp;auto=format" alt="Ivory silk wrap dress draped on model" loading="eager">
+
+          <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800&amp;q=80&amp;auto=format" alt="Close-up of silk fabric texture with subtle lustre" loading="lazy">
+
+          <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800&amp;q=80&amp;auto=format" alt="Full-length view of silk wrap dress showing midi length" loading="lazy">
+
+          <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=800&amp;q=80&amp;auto=format" alt="Silk wrap dress detail showing French seam finishing" loading="lazy">
+    </div>
+
+    <div class="product-info">
+      <div class="product-breadcrumb">
+        <a href="/">Home</a> &mdash; <a href="/shop/">Shop</a> &mdash; Dresses
+      </div>
+      <h1>Silk Wrap Dress</h1>
+      <p class="product-price">$285</p>
+      <p class="product-description">A fluid silk wrap dress that drapes beautifully on every figure. Cut from pure mulberry silk with a subtle lustre, this piece moves with effortless grace. The adjustable wrap silhouette flatters the waist while the midi length offers timeless elegance. Finished with French seams throughout.</p>
+
+      <div class="product-meta-row">
+        <span class="product-meta-label">Color</span>
+        <span class="product-meta-value">Cream / Ivory</span>
+      </div>
+      <div class="product-meta-row">
+        <span class="product-meta-label">Material</span>
+        <span class="product-meta-value">100% Mulberry Silk</span>
+      </div>
+      <div class="product-meta-row" style="border-bottom: 1px solid var(--border);">
+        <span class="product-meta-label">Category</span>
+        <span class="product-meta-value">Dresses</span>
+      </div>
+
+      <div class="product-sizes">
+        <span class="size-pill">XS</span>
+            <span class="size-pill">S</span>
+            <span class="size-pill">M</span>
+            <span class="size-pill">L</span>
+            <span class="size-pill">XL</span>
+      </div>
+
+      <button class="add-to-cart">Add to Cart</button>
+    </div>
+  </div>
+
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="/" class="logo">AURA.</a>
+        <p class="footer-tagline">AURA. is a luxury womenswear label dedicated to quiet elegance and timeless design.</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://instagram.com/aura" target="_blank" rel="noopener"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg> Instagram</a>
+        <a href="https://x.com/aura" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> Twitter</a>
+        <a href="mailto:hello@aura-store.com">hello@aura-store.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 AURA. All rights reserved.</span>
+      <span>Built with <a href="https://webhouse.app">@webhouse/cms</a></span>
+    </div>
+  </footer>
+
+  <script>
+    const h = document.getElementById('site-header');
+    window.addEventListener('scroll', () => {
+      h.classList.toggle('scrolled', window.scrollY > 10);
+    });
+  </script>
+</body>
+</html>
